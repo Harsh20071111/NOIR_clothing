@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronRight } from "lucide-react";
+import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 import { categories } from "@/lib/mock-data";
 import { useState } from "react";
 
@@ -145,6 +146,51 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
               >
                 Shop All
               </Link>
+
+              {/* Auth Actions */}
+              <div className="my-4 mx-6 border-t border-border" />
+              <div className="px-6">
+                <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                  Account
+                </p>
+
+                <Show when="signed-out">
+                  <div className="grid grid-cols-2 gap-2">
+                    <SignInButton mode="modal">
+                      <button
+                        onClick={onClose}
+                        className="w-full text-sm font-semibold px-3 py-2 border border-border rounded-sm text-foreground/90 hover:text-foreground hover:bg-secondary/50 transition-colors"
+                        id="mobile-sign-in-button"
+                      >
+                        Sign In
+                      </button>
+                    </SignInButton>
+
+                    <SignUpButton mode="modal">
+                      <button
+                        onClick={onClose}
+                        className="w-full text-sm font-semibold text-white bg-[var(--color-gold)] hover:bg-[var(--color-gold-dark)] transition-colors px-3 py-2 rounded-sm"
+                        id="mobile-sign-up-button"
+                      >
+                        Sign Up
+                      </button>
+                    </SignUpButton>
+                  </div>
+                </Show>
+
+                <Show when="signed-in">
+                  <div className="flex items-center justify-between rounded-sm border border-border px-3 py-2">
+                    <span className="text-sm font-medium text-foreground/90">My Account</span>
+                    <UserButton
+                      appearance={{
+                        elements: {
+                          avatarBox: "w-8 h-8",
+                        },
+                      }}
+                    />
+                  </div>
+                </Show>
+              </div>
             </nav>
 
             {/* Footer */}
