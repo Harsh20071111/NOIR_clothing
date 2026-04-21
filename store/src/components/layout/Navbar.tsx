@@ -133,6 +133,35 @@ export function Navbar() {
 
               {/* Clerk Auth Controls */}
               <Show when="signed-out">
+                <div className="flex items-center gap-2 sm:hidden">
+                  <SignInButton mode="modal">
+                    <motion.button
+                      className="text-[10px] font-semibold px-2 py-1 border rounded-sm"
+                      animate={{
+                        color: "rgb(17, 24, 39)",
+                        borderColor: "rgba(0, 0, 0, 0.16)",
+                      }}
+                      whileHover={{
+                        color: "rgb(31, 41, 55)",
+                        borderColor: "rgba(0, 0, 0, 0.24)",
+                      }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      id="mobile-nav-sign-in-button"
+                    >
+                      Sign In
+                    </motion.button>
+                  </SignInButton>
+
+                  <SignUpButton mode="modal">
+                    <button
+                      className="text-[10px] font-semibold text-white bg-[var(--color-gold)] hover:bg-[var(--color-gold-dark)] transition-colors px-2 py-1 rounded-sm"
+                      id="mobile-nav-sign-up-button"
+                    >
+                      Sign Up
+                    </button>
+                  </SignUpButton>
+                </div>
+
                 <SignInButton mode="modal">
                   <motion.button
                     className="text-xs font-semibold px-3 py-1.5 border rounded-sm hidden sm:block"
