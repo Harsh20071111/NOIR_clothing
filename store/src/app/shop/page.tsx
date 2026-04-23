@@ -104,7 +104,7 @@ function ShopPageContent() {
 
     // Filter by price range
     result = result.filter((p) => {
-      const price = p.discountPrice ?? p.price;
+      const price = p.price;
       return price >= priceRange[0] && price <= priceRange[1];
     });
 
@@ -119,13 +119,13 @@ function ShopPageContent() {
       case "price-asc":
         result.sort(
           (a, b) =>
-            (a.discountPrice ?? a.price) - (b.discountPrice ?? b.price)
+            a.price - b.price
         );
         break;
       case "price-desc":
         result.sort(
           (a, b) =>
-            (b.discountPrice ?? b.price) - (a.discountPrice ?? a.price)
+            b.price - a.price
         );
         break;
       case "rating":
@@ -176,7 +176,7 @@ function ShopPageContent() {
         >
           <h1
             className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight"
-            style={{ fontFamily: "var(--font-outfit)" }}
+            style={{ fontFamily: "var(--font-bebas)" }}
           >
             {heading}
           </h1>

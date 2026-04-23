@@ -1,61 +1,58 @@
 import Link from "next/link";
-import { Globe, MessageCircle } from "lucide-react";
+import { Globe, Play, MessageCircle } from "lucide-react";
 
 const footerLinks = {
-  Shop: [
-    { name: "New Drops", href: "/shop?category=new-drops" },
-    { name: "Men", href: "/shop?category=men" },
-    { name: "Women", href: "/shop?category=women" },
-    { name: "Accessories", href: "/shop?category=accessories" },
+  "Top Categories": [
+    { name: "Oversized T-Shirts", href: "/shop?category=tshirts&sub=oversized-fit" },
+    { name: "Joggers", href: "/shop?category=bottomwear&sub=joggers" },
+    { name: "Cargo Pants", href: "/shop?category=bottomwear&sub=cargo" },
+    { name: "Hoodies", href: "/shop?category=winterwear&sub=hoodies" },
+    { name: "Polo Shirts", href: "/shop?collection=polo" },
   ],
-  Help: [
-    { name: "FAQs", href: "/faq" },
-    { name: "Shipping & Returns", href: "/shipping-returns" },
-    { name: "Size Guide", href: "/size-guide" },
-    { name: "Track Order", href: "/track-order" },
+  "Best Seller": [
+    { name: "Glory Arc Tee", href: "/shop/prod-2" },
+    { name: "Wild Drift Joggers", href: "/shop/prod-5" },
+    { name: "Distressed Hoodie", href: "/shop/prod-8" },
+    { name: "Shadow Stripe Polo", href: "/shop/prod-9" },
   ],
   Company: [
+    { name: "Home", href: "/" },
+    { name: "Track My Order", href: "/track-order" },
+    { name: "Contact Us", href: "/contact" },
     { name: "About Us", href: "/about" },
-    { name: "Sustainability", href: "/sustainability" },
-    { name: "Careers", href: "/careers" },
-    { name: "Contact", href: "/contact" },
+  ],
+  Policies: [
+    { name: "Shipping Policy", href: "/shipping-policy" },
+    { name: "Refund Policy", href: "/refund-policy" },
+    { name: "Privacy Policy", href: "/privacy-policy" },
+    { name: "Terms of Service", href: "/terms" },
   ],
 };
 
 export function Footer() {
   return (
-    <footer className="bg-secondary/30 mt-auto border-t border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+    <footer className="bg-[#0A0A0A] text-white mt-auto">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="inline-block">
-              <span className="text-2xl font-bold tracking-wider text-foreground">
+              <span className="text-3xl font-bold tracking-[0.08em]" style={{ fontFamily: "var(--font-bebas)" }}>
                 NOIR<span className="text-[var(--color-gold)]">.</span>
               </span>
             </Link>
-            <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-xs">
-              Premium streetwear crafted for the bold. Designed in India, worn
-              worldwide.
+            <p className="mt-4 text-sm text-white/50 leading-relaxed max-w-xs">
+              Premium streetwear crafted for the bold. Designed in India, worn worldwide.
             </p>
-            <div className="flex gap-4 mt-6">
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-[var(--color-gold-dark)] transition-colors"
-                aria-label="Instagram"
-              >
-                <Globe className="w-5 h-5" />
+            <div className="flex gap-3 mt-5">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center border border-white/20 text-white/50 hover:text-[var(--color-gold)] hover:border-[var(--color-gold)] transition-all" aria-label="Instagram">
+                <Globe className="w-4 h-4" />
               </a>
-              <a
-                href="https://x.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-[var(--color-gold-dark)] transition-colors"
-                aria-label="Twitter"
-              >
-                <MessageCircle className="w-5 h-5" />
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center border border-white/20 text-white/50 hover:text-[var(--color-gold)] hover:border-[var(--color-gold)] transition-all" aria-label="YouTube">
+                <Play className="w-4 h-4" />
+              </a>
+              <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center border border-white/20 text-white/50 hover:text-[var(--color-gold)] hover:border-[var(--color-gold)] transition-all" aria-label="Twitter">
+                <MessageCircle className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -63,16 +60,13 @@ export function Footer() {
           {/* Link Columns */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="text-xs font-semibold tracking-widest text-foreground uppercase mb-4">
+              <h4 className="text-[11px] font-bold tracking-[0.15em] text-white/80 uppercase mb-4">
                 {title}
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                    >
+                    <Link href={link.href} className="text-sm text-white/40 hover:text-white transition-colors">
                       {link.name}
                     </Link>
                   </li>
@@ -83,17 +77,14 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">
+        <div className="mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-white/30">
             © 2026 NOIR. All rights reserved.
           </p>
-          <div className="flex gap-6 text-xs text-muted-foreground">
-            <Link href="/privacy-policy" className="hover:text-foreground transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="hover:text-foreground transition-colors">
-              Terms of Service
-            </Link>
+          <div className="flex gap-6 text-xs text-white/30">
+            <Link href="/privacy-policy" className="hover:text-white/60 transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-white/60 transition-colors">Terms</Link>
+            <Link href="/refund-policy" className="hover:text-white/60 transition-colors">Refunds</Link>
           </div>
         </div>
       </div>

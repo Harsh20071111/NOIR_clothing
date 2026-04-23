@@ -48,15 +48,15 @@ export function SquareProductGrid({ products }: { products: Product[] }) {
 
             {/* Default Info (Bottom Left) */}
             <div className="absolute bottom-0 left-0 p-5 z-20 w-full bg-gradient-to-t from-black/60 to-transparent group-hover:opacity-0 transition-opacity duration-300">
-              <h3 className="text-white font-bold text-lg leading-tight" style={{ fontFamily: "var(--font-outfit)" }}>{product.name}</h3>
+              <h3 className="text-white font-bold text-lg leading-tight" style={{ fontFamily: "var(--font-bebas)" }}>{product.name}</h3>
               <p className="text-white/80 font-medium mt-1">
-                ${(product.discountPrice ?? product.price).toLocaleString("en-US")}
+                ${product.price.toLocaleString("en-US")}
               </p>
             </div>
 
             {/* Hover Info (Centered) */}
             <div className="absolute inset-0 flex flex-col items-center justify-center z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">
-              <h3 className="text-white font-extrabold text-2xl text-center px-4 mb-2" style={{ fontFamily: "var(--font-outfit)" }}>
+              <h3 className="text-white font-extrabold text-2xl text-center px-4 mb-2" style={{ fontFamily: "var(--font-bebas)" }}>
                 {product.name}
               </h3>
               <span className="flex items-center gap-2 text-sm uppercase tracking-widest font-bold text-white bg-white/20 backdrop-blur-md px-6 py-2.5 rounded-full border border-white/30 hover:bg-white hover:text-black transition-colors">

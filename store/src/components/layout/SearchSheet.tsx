@@ -105,7 +105,7 @@ export function SearchSheet({ open, onClose }: SearchSheetProps) {
                         <p className="text-xs text-muted-foreground">{product.brand}</p>
                       </div>
                       <span className="text-sm font-semibold text-foreground">
-                        ${(product.discountPrice ?? product.price).toLocaleString("en-US")}
+                        ${product.price.toLocaleString("en-US")}
                       </span>
                     </Link>
                   ))}

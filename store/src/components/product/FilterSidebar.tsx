@@ -40,7 +40,7 @@ export function FilterSidebar() {
       <div className="flex items-center justify-between mb-4">
         <h3
           className="text-sm font-semibold text-foreground tracking-wider uppercase"
-          style={{ fontFamily: "var(--font-outfit)" }}
+          style={{ fontFamily: "var(--font-bebas)" }}
         >
           Filters
         </h3>
@@ -129,10 +129,12 @@ export function FilterSidebar() {
           <AccordionContent>
             <div className="space-y-3 pt-1 pb-3">
               {[
-                { label: "$30 — $35", range: [30, 35] as [number, number] },
-                { label: "$35 — $40", range: [35, 40] as [number, number] },
-                { label: "$40 — $45", range: [40, 45] as [number, number] },
-                { label: "$45 — $50", range: [45, 50] as [number, number] },
+                { label: "Under $25", range: [0, 25] as [number, number] },
+                { label: "$25 — $49", range: [25, 49] as [number, number] },
+                { label: "$50 — $79", range: [50, 79] as [number, number] },
+                { label: "$80 — $129", range: [80, 129] as [number, number] },
+                { label: "$130+", range: [130, 200] as [number, number] },
+                { label: "All Prices", range: [0, 200] as [number, number] },
               ].map((item) => (
                 <label
                   key={item.label}

@@ -40,10 +40,10 @@ export function ProductGrid({ products, isLoading = false }: ProductGridProps) {
         animate={{ opacity: 1 }}
         className="flex flex-col items-center justify-center py-24 text-center"
       >
-        <p className="text-lg font-medium text-white/50 mb-2">
+        <p className="text-lg font-medium text-muted-foreground mb-2">
           No products found
         </p>
-        <p className="text-sm text-white/25">
+        <p className="text-sm text-muted-foreground/60">
           Try adjusting your filters to find what you&apos;re looking for.
         </p>
       </motion.div>

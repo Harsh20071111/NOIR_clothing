@@ -16,9 +16,9 @@ interface ProductCardProps {
 export function ProductCard({ product, index = 0 }: ProductCardProps) {
   const addItem = useCartStore((s) => s.addItem);
   const setCartOpen = useCartStore((s) => s.setCartOpen);
-  const hasDiscount = product.discountPrice !== undefined;
+  const hasDiscount = product.regularPrice > product.price;
   const discountPercent = hasDiscount
-    ? Math.round(((product.price - product.discountPrice!) / product.price) * 100)
+    ? Math.round(((product.regularPrice - product.price) / product.regularPrice) * 100)
     : 0;
 
   const handleQuickAdd = () => {
@@ -32,7 +32,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
       variantId: variant.id,
       name: product.name,
       image: product.images[0],
-      price: product.discountPrice ?? product.price,
+      price: product.price,
       size: variant.size,
       color: variant.color,
       quantity: 1,
@@ -107,10 +107,10 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
           {hasDiscount ? (
             <>
               <span className="text-sm font-semibold text-foreground">
-                ${product.discountPrice!.toLocaleString("en-US")}
+                ${product.price.toLocaleString("en-US")}
               </span>
               <span className="text-xs text-muted-foreground line-through">
-                ${product.price.toLocaleString("en-US")}
+                ${product.regularPrice.toLocaleString("en-US")}
               </span>
             </>
           ) : (

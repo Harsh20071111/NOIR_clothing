@@ -51,7 +51,7 @@ export function EditorialPoster({ imageUrl, title, subtitle, buttonText, link, a
           transition={{ duration: 0.8, ease: "easeOut" }}
           className={`absolute z-20 bottom-8 sm:bottom-12 ${isRight ? "right-6 sm:right-12 text-right items-end" : "left-6 sm:left-12 text-left items-start"} flex flex-col max-w-lg`}
         >
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-4" style={{ fontFamily: "var(--font-outfit)" }}>
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-4" style={{ fontFamily: "var(--font-bebas)" }}>
             {title}
           </h2>
           <p className="text-white/90 text-sm md:text-lg mb-8 leading-relaxed max-w-[400px]">
